@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subscriber: one
+  book: one
+  start: 2022-11-05 23:55:10
+  finish: 2022-11-05 23:55:10
+  is_active: false
+
+two:
+  subscriber: two
+  book: two
+  start: 2022-11-05 23:55:10
+  finish: 2022-11-05 23:55:10
+  is_active: false
