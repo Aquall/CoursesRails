@@ -12,27 +12,28 @@ Book.delete_all
 Genre.delete_all
 Author.delete_all
 
-(0..10).each{|number| Genre.create!(name: "genre#{number}")}
+(0..5).each{|number| Genre.create!(name: "genre#{number}")}
 
 
-(0..100).each do |number| 
+(0..5).each do |number| 
     book = Book.create!(name: "book#{number}", year: rand(1990..2022), quantity: rand(0..50)) 
     genres = Genre.order(Arel.sql('RANDOM()')).first(2)
     book.genres.push(genres)
 end
 
+    Book.create!(name: "Alah!", year: 1888, quantity: 3)
 
-(0..100).each do |number|
+(0..5).each do |number|
     Author.create!(name: "author#{number}")
 end
 
 
-(0..300). each do |number|
+(0..5). each do |number|
     Subscriber.create!(name: "subscriber#{number}")
 end
 
 
-(0..300). each do |number|
+(0..7). each do |number|
     subscriber = Subscriber.order(Arel.sql('RANDOM()')).first
     book = Book.order(Arel.sql('RANDOM()')).first
     start = DateTime.new(rand(2018..2020), rand(1..5), rand(1..28), 10, 5, 6)
@@ -43,3 +44,10 @@ end
                                         finish: finish, 
                                         is_active: [true, false].sample)
 end
+
+    Subscriber.create!(name: "Жлобин.М.Ю")
+    Subscriber.create!(name: "Жлобин.М.Ю")
+    Subscriber.create!(name: "Жлобин.М.Ю")
+    Subscriber.create!(name: "Василий.П.Ю")
+
+Book.each{book}
