@@ -5,7 +5,7 @@ module Subscribers
         end
 
         def subscribers_with_the_same_name
-            Subscriber.group(:name).having("count(name) = ?", 1)
+            Subscriber.group(:name).having("count(name) = ?", 6)
         end
 
         def select_sub

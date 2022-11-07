@@ -17,10 +17,10 @@ module Subscriptions
             Subscription.where("is_active = ?", true).count("DISTINCT book_id")
         end
 
-        def most_book_subscriber
+        def most_subscribers
             Subscription.group(:subscriber_id).count.max_by{|k,v| v}.first
         end
 
-        select subscriber_id, max(total) from (select subscriber_id, count(book_id) as total from subscriptions group by(subscriber_id));
+        #select subscriber_id, max(total) from (select subscriber_id, count(book_id) as total from subscriptions group by(subscriber_id));
     end
 end
