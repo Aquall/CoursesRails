@@ -11,6 +11,7 @@ BooksGenre.delete_all
 Book.delete_all
 Genre.delete_all
 Author.delete_all
+Subscriber.delete_all
 
 (0..5).each{|number| Genre.create!(name: "genre#{number}")}
 
@@ -49,5 +50,3 @@ end
     Subscriber.create!(name: "Жлобин.М.Ю")
     Subscriber.create!(name: "Жлобин.М.Ю")
     Subscriber.create!(name: "Василий.П.Ю")
-
-Book.each{book}
