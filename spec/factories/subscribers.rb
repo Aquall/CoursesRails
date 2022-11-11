@@ -1,7 +1,9 @@
 FactoryBot.define do
     factory :subscriber do
         sequence(:name) { |n| "name#{n}" }
-
+        trait :in_valid do
+            name {'name1'}
+        end
         factory :subscriber_with_subscriptions do
             transient do
                 subscriptions_count { 5 }

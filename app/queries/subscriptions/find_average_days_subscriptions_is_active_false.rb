@@ -1,4 +1,4 @@
-def Subscriptions
+module Subscriptions
     class FindAverageDaysSubscriptionsIsActiveFalse
         def self.call
             Subscription.where(is_active: false)

@@ -1,4 +1,4 @@
-def Subscriptions
+module Subscriptions
     class FindCountSubscriptionsByYear
         def self.call
             Subscription.group("strftime('%Y', start)").count   

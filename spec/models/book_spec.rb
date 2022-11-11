@@ -12,6 +12,5 @@ RSpec.describe Book, type: :model do
     
     describe 'validations' do
         it { should validate_uniqueness_of(:name).scoped_to(:year).with_message('must be unique!')}
-        #validates :name, uniqueness:{scope: :year, message: 'must be unique!'}
     end
 end
