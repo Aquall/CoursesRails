@@ -53,9 +53,9 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "factory_bot"
   gem "factory_bot_rails"
-  gem 'shoulda-matchers', '~> 5.0'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :development do
@@ -75,4 +75,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'database_cleaner-active_record'
+  gem 'shoulda-matchers', '~> 5.0'
 end
