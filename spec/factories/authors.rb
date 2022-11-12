@@ -4,7 +4,7 @@ FactoryBot.define do
         trait :in_valid do
             name {'name1'}
         end
-        factory :author_with_book do
+        factory :author_with_books do
             transient do
                 books_count { 5 }
             end
