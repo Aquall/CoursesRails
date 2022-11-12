@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: subscribers
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 FactoryBot.define do
     factory :subscriber do
         sequence(:name) { |n| "name#{n}" }
