@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AuthorsBook, type: :model do
-    before do
-        create(:author, 5)
-        create(:book, 5)
-    end
-    
-    context 'associations' do
-        it { should belong_to(:book) }
-        it { should belong_to(:genre)}
-    end
+  
+  describe 'associations' do
+    subject { build_list(:author_with_books, 1, books_count: 1) }
+    it { is_expected.to belong_to(:book) }
+    it { is_expected.to belong_to(:genre) }
+  end
 
-    describe 'validations' do
-        it { should validate_presence_of(:book_id)}
-        it { should validate_presence_of(:genre_id)}
-        it { should validate_uniqueness_of(:book_id).scoped_to(:genre_id)}
-    end
+  describe 'validations' do
+    subject { build_list(:author_with_books, 1, books_count: 1) }
+    it { is_expected.to validate_presence_of(:book_id) }
+    it { is_expected.to validate_presence_of(:genre_id) }
+    it { is_expected.to validate_uniqueness_of(:book_id).scoped_to(:genre_id) }
+  end
 end

@@ -17,4 +17,11 @@ RSpec.describe Book, type: :model do
 
     it { is_expected.to validate_uniqueness_of(:name).scoped_to(:year).with_message('must be unique!') }
   end
+
+#   describe 'validations' do
+#     let(:book) { create(:book) }
+
+#     it {expect{described_class.create!(name: book.name, year: book.year)}.to raise_error}
+#   end
+
 end
