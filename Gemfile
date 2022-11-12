@@ -56,6 +56,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 end
 
 group :development do
