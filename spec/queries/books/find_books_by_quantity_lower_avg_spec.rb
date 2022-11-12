@@ -2,17 +2,16 @@
 
 require 'rails_helper'
 
-RSpec.describe Books::FindBooksByQuantityLowerAvgSpec do
+RSpec.describe Books::FindBooksByQuantityLowerAvg do
   before do
-    #@subscriber = create(:subscriber)
-    #create_list(:subscription, 10, subscriber: @subscriber)
-    #create_list(:subscriber_with_subscriptions, 10, subscriptions_count: 10)
-    create_list(:book, 10)
+    create_list(:book, 2, quantity: 3)
+    create_list(:book, 2, quantity: 2)
+    create(:book, quantity: 5)
   end
 
-  context '#call' do
+  describe '#call' do
     it do
-      expect(described_class.call).eql?(1)
+      expect(described_class.call).to match_array(Book.where(quantity: 0..3))
     end
   end
 end
