@@ -7,6 +7,7 @@
 #  id         :integer          not null, primary key
 #  name       :string
 #  quantity   :integer          default(0)
+#  status     :integer          default(0)
 #  year       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -31,6 +32,14 @@ RSpec.describe Book, type: :model do
     subject { build(:book) }
 
     it { is_expected.to validate_uniqueness_of(:name).scoped_to(:year).with_message('must be unique!') }
+  end
+
+  describe 'scopes' do
+    let!(:book) {create(:book, name: 'rererererer')}
+
+    it do
+      expect(described_class.with_long_name).to eq([book])
+    end
   end
 
 #   describe 'validations' do

@@ -26,5 +26,5 @@ class Book < ApplicationRecord
     accepts_nested_attributes_for :genres
     validates :name, uniqueness:{scope: :year, message: 'must be unique!'}
 
-    scope :with_long_name, ->{ where("LENGTH(:name) > 10") }
+    scope :with_long_name, ->{ where("LENGTH(name) > 10") }
 end
