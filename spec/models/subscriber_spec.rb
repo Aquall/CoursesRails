@@ -23,5 +23,11 @@ RSpec.describe Subscriber, type: :model do
     subject { build(:subscriber) }
 
     it { is_expected.to validate_presence_of(:name).with_message('must be abided') }
+
+    it {
+      expect do
+        described_class.create!(name: 'Alaussus', email: 'evkakii_bobrov')
+      end.to raise_error(ActiveRecord::RecordInvalid)
+    }
   end
 end
