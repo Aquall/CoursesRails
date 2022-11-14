@@ -14,4 +14,5 @@ class Subscriber < ApplicationRecord
     has_many :documents, class_name: "Subscription"
 
     validates :name, presence: {message: 'must be abided'}
+    validates :email, presence: true, email: true
 end
