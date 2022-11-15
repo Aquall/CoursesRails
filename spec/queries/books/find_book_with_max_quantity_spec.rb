@@ -3,9 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe Books::FindBookWithMaxQuantity do
-  let(:book) {create(:book, quantity: 6)}
+  let!(:book) {create(:book, quantity: 6)}
   let!(:books) {create_list(:book, 2, quantity:3)}
-
 
   context '#call' do
     it do
