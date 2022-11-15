@@ -29,7 +29,7 @@ class Subscription < ApplicationRecord
 
   validates :start, presence: { message: 'must be abided' }
   validates :finish, presence: { message: 'must be abided' }
-  validates :is_active, presence: true, is_active: true
+  #validates :is_active, presence: true, is_active: true
 
   scope :not_active, -> { where(is_active: false) }
 end
