@@ -58,7 +58,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_224030) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "email"
+=======
+    t.string "email", null: false
+>>>>>>> create-custom-validators
   end
 
   create_table "subscriptions", force: :cascade do |t|
