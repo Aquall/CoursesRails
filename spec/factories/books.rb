@@ -31,7 +31,7 @@ FactoryBot.define do
                 genres_count { 5 }
             end
             after(:create) do |books, evaluator|
-                create_list(:genre, evaluator.genres_count, books: [books])
+                create_list(:genre, evaluator.genres_count, book: book)
         
                 books.reload
             end

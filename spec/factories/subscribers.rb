@@ -22,7 +22,7 @@ FactoryBot.define do
         subscriptions_count { 5 }
       end
       after(:create) do |subscriber, evaluator|
-        create_list(:subscription, evaluator.subscriptions_count, subscriber: [subscriber])
+        create_list(:subscription, evaluator.subscriptions_count, subscriber: subscriber)
 
         subscriber.reload
       end
