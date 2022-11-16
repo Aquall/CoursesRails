@@ -27,11 +27,11 @@ class Subscription < ApplicationRecord
   belongs_to :subscriber
   belongs_to :book
 
-  delegate :name, :email to: :subscriber, prefix: :show
+  #delegate :name, :email to: :subscriber, prefix: :show
 
   validates :start, presence: { message: 'must be abided' }
   validates :finish, presence: { message: 'must be abided' }
-  validates :is_active, presence: true, is_active: true
+  #validates :is_active, presence: true, is_active: true
 
   scope :not_active, -> { where(is_active: false) }
 end
