@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_224030) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_16_231112) do
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -47,6 +47,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_224030) do
     t.index ["genre_id"], name: "index_books_genres_on_genre_id"
   end
 
+  create_table "employes", force: :cascade do |t|
+    t.string "name"
+    t.string "string"
+    t.string "role"
+    t.string "integer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -58,11 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_224030) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.string "email"
-=======
-    t.string "email", null: false
->>>>>>> create-custom-validators
   end
 
   create_table "subscriptions", force: :cascade do |t|

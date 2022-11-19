@@ -18,8 +18,6 @@ Subscriber.delete_all
            Book.create(name: "book#{number}",year: rand(1990..2022), quantity: rand(0..50), status: rand(0..1),
            authors_attributes: [{name: "author#{number}"}],
            genres_attributes: [{name: "genre#{number}"}])
-    # genres = Genre.order(Arel.sql('RANDOM()')).first(2)
-    # book.genres.push(genres)
 end
 
 #     Book.create!(name: "Alah!", year: 1888, quantity: 3)
