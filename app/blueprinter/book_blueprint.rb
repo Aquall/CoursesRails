@@ -1,12 +1,8 @@
+# frozen_string_literal: true
+
 class BookBlueprint < Blueprinter::Base
+  fields :name, :year
 
-  fields :name 
-
-  association :genres, blueprint: GenreBlueprint
-  association :authors, blueprint: AuthorBlueprint
-
-  # field :subscriptions_count do |book|
-  #   book.subscriptions.count
-  # end
-
+  association :authors_books, name: :authors, blueprint: Books::AuthorBlueprint
+  association :books_genres, name: :genres, blueprint: Books::GenreBlueprint
 end

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class SubscriptionBlueprint < Blueprinter::Base
-  # identifier :id
+  identifier :id
 
-  fields :is_active, :start, :finish, :subscriber_id
+  fields :is_active, :start, :finish
 
-  association :subscriber, blueprint: SubscriberBlueprint
   association :book, blueprint: BookBlueprint
 end
