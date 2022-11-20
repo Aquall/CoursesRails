@@ -7,16 +7,18 @@ Rails.application.routes.draw do
       resources :subscribers do
         resources :subscriptions
       end
+    end
+  end
 
-      namespace :admin do
-        resources :authors 
-        resources :genres
-        resources :books
-        resources :subscribers do
-          resources :subscriptions
-        end
+  namespace :api do
+    namespace :admin do
+      resources :authors 
+      resources :genres
+      resources :books
+      resources :subscribers do
         resources :subscriptions
       end
+      resources :subscriptions
     end
   end
 
