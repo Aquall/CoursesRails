@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  name       :string
 #  quantity   :integer          default(0)
-#  status     :integer          default(0)
+#  status     :integer          default("active")
 #  year       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -25,16 +25,6 @@ FactoryBot.define do
         end
         trait :archived do
             status {0}
-        end
-        factory :books_with_genre do
-            transient do
-                genres_count { 5 }
-            end
-            after(:create) do |books, evaluator|
-                create_list(:genre, evaluator.genres_count, book: book)
-        
-                books.reload
-            end
         end
     end
   end
