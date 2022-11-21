@@ -34,11 +34,11 @@ module Admin
       end
 
       def authors_attributes
-        @author_ids ||= (params[:book][:authors_attributes].presence || [])
+        @authors_attributes ||= (params[:book][:authors_attributes].presence || [])
       end
 
       def genres_attributes
-        @genre_ids ||= (params[:book][:genres_attributes].presence || [])
+        @genres_attributes ||= (params[:book][:genres_attributes].presence || [])
       end
     end
   end
