@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :authors
-      resources :genres
+      resources :genres do
+        resources :books
+      end
       resources :books
       resources :subscribers do
         resources :subscriptions
@@ -13,7 +15,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :admin do
       resources :authors 
-      resources :genres
+      resources :genres do
+        resources :books
+      end
       resources :books
       resources :subscribers do
         resources :subscriptions
