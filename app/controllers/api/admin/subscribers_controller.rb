@@ -7,7 +7,7 @@ module Api
 
       # GET /subscribers or /subscribers.json
       def index
-        @subscribers = Subscriber.includes(subscriptions: %i[subscriber book])
+        @subscribers = Subscriber.includes(subscriptions: [:subscriber, {book: [:genres, :authors]}])
         render json: SubscriberBlueprint.render(@subscribers)
       end
 
@@ -15,27 +15,6 @@ module Api
       def show
         @subscriber = Subscriber.includes(subscriptions: [book: %i[genres authors]]).find(params[:id])
         render json: SubscriberBlueprint.render(@subscriber)
-      end
-
-      # GET /subscribers/new
-      def new
-        @subscriber = Subscriber.new
-      end
-
-      # GET /subscribers/1/edit
-      def edit; end
-
-      # POST /subscribers or /subscribers.json
-      def create
-        @subscriber = Subscriber.new(subscriber_params)
-
-        respond_to do |_format|
-          if @subscriber.save
-            render json: @subscriber, status: :created
-          else
-            render json: @subscriber.errors, status: :unprocessable_entity
-          end
-        end
       end
 
       # PATCH/PUT /subscribers/1 or /subscribers/1.json

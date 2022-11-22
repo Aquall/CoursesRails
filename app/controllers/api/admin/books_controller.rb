@@ -17,14 +17,6 @@ module Api
         render json: BookBlueprint.render(@book)
       end
 
-      # GET /books/new
-      def new
-        @book = Book.new
-      end
-
-      # GET /books/1/edit
-      def edit; end
-
       # POST /books or /books.json
       def create
         @book = ::Admin::Books::Create.call(params)
@@ -39,12 +31,8 @@ module Api
 
       # DELETE /books/1 or /books/1.json
       def destroy
-        @book.destroy
-
-        respond_to do |format|
-          format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-          format.json { head :no_content }
-        end
+        @book = ::Admin::Books::Destroy.call(params)
+        render json: BookBlueprint.render(@book), status: :accepted
       end
 
       private

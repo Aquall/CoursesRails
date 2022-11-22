@@ -24,7 +24,7 @@ RSpec.describe 'Api/V1/Authors', type: :request do
 
     it 'returns book with id 1' do
       get '/api/v1/books/1'
-      expect(JSON.parse(response.body)["name"]).to eq("name5")
+      expect(JSON.parse(response.body)["name"]).to eq(author_book.books.first.name)
     end
   end
 end
