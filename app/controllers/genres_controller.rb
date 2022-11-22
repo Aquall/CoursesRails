@@ -4,6 +4,7 @@ class GenresController < ApplicationController
   # GET /genres or /genres.json
   def index
     @genres = Genre.all
+    render json: GenreBlueprint.render(@genres)
   end
 
   # GET /genres/1 or /genres/1.json
@@ -25,11 +26,9 @@ class GenresController < ApplicationController
 
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to genre_url(@genre), notice: "Genre was successfully created." }
-        format.json { render :show, status: :created, location: @genre }
+        render json: @genre, status: :created 
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @genre.errors, status: :unprocessable_entity }
+        render json: @genre.errors, status: :unprocessable_entity
       end
     end
   end

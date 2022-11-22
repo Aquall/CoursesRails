@@ -81,6 +81,7 @@ GEM
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
     bindex (0.8.1)
+    blueprinter (0.25.3)
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     builder (3.2.4)
@@ -273,6 +274,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  blueprinter (~> 0.25.3)
   bootsnap
   capybara
   database_cleaner-active_record

@@ -27,5 +27,6 @@ RSpec.describe Author, type: :model do
     subject { build(:author) }
 
     it { is_expected.to validate_presence_of(:name).with_message('must be abided') }
+    it { expect(described_class.create(name: nil).valid?).to eq(false) }
   end
 end
